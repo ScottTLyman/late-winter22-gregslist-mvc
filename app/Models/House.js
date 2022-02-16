@@ -2,7 +2,7 @@ import { generateId } from "../Utils/generateId.js"
 
 export class House {
   constructor({ bedrooms, bathrooms, sqFootage, garage, description, price, imgUrl }) {
-    this.id = generateId
+    this.id = generateId()
     this.bedrooms = bedrooms
     this.bathrooms = bathrooms
     this.sqFootage = sqFootage
@@ -22,7 +22,7 @@ export class House {
             <p>Total Sq.Footage: ${this.sqFootage}</p>
             <p>Garage: ${this.garage}</p>
             <P>Description: ${this.description}</p>
-            <p>$${this.price}</p>
+            <p>$ ${this.price}</p>
           </div>
           <button class="btn btn-outline-danger" onclick="app.housesController.deleteHouse('${this.id}')"> Delete </button>
         </div>

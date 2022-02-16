@@ -11,6 +11,7 @@ class HousesService {
     let indexToDelete = ProxyState.houses.findIndex(h => h.id == houseID)
     ProxyState.houses.splice(indexToDelete, 1)
     ProxyState.houses = ProxyState.houses
+    console.log("deleted", ProxyState.houses);
   }
 }
 

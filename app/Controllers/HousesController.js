@@ -4,6 +4,7 @@ import { housesService } from "../Services/HousesService.js"
 
 function _drawHouses() {
   let template = ''
+  console.log("DRAWING HOUSES");
   ProxyState.houses.forEach(h => template += h.Template)
   // console.log('drawing houses')
   document.getElementById('listings').innerHTML = template
@@ -11,7 +12,8 @@ function _drawHouses() {
 
 export class HousesController {
   constructor() {
-    ProxyState.on('houses', _drawHouses())
+    ProxyState.on('houses', _drawHouses)
+    // _drawHouses()
     // console.log('houses controller loaded')
   }
   viewHouses() {
@@ -28,6 +30,7 @@ export class HousesController {
       sqFootage: form.sqFootage.value,
       garage: form.garage.value,
       description: form.description.value,
+      price: form.price.value,
       imgUrl: form.imgUrl.value
     }
     housesService.createHouse(newHouse)

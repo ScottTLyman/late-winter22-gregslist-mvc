@@ -29,7 +29,7 @@ export function getHouseForm() {
       </div>
       <div class="mb-3 col-3">
         <label for="" class="form-label">Price</label>
-        <input required type="text" class="form-control" name="price" id="price" aria-describedby="helpId"
+        <input required type="number" class="form-control" name="price" id="price" aria-describedby="helpId"
           placeholder="">
       </div>
   <div class="mb-3 col-9">

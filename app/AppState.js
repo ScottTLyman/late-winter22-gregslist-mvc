@@ -45,6 +45,7 @@ export const ProxyState = new Proxy(new AppState(), {
   set(target, prop, value) {
     isValidProp(target, prop)
     target[prop] = value
+    console.log("TRIGGERED SET", prop, value);
     target.emit(prop, value)
     return true
   }
