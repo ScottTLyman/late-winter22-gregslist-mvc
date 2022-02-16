@@ -1,7 +1,7 @@
 import { generateId } from "../Utils/generateId.js"
 
 export class House {
-  constructor(bedrooms, bathrooms, sqFootage, garage, description, imgURL) {
+  constructor({ bedrooms, bathrooms, sqFootage, garage, description, imgURL }) {
     this.id = generateId
     this.bedrooms = bedrooms
     this.bathrooms = bathrooms

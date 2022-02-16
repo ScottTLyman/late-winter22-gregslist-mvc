@@ -14,17 +14,17 @@ export function getHouseForm() {
   </div>
   <div class="mb-3 col-3">
     <label for="" class="form-label">Square Footage</label>
-    <input required type="number" class="form-control" name="sqFootage" id="sqFootage" aria-describedby="helpId"
-      placeholder="" value="2000" min="1990" max="3000">
+    <input required type="text" class="form-control" name="sqFootage" id="sqFootage" aria-describedby="helpId"
+      placeholder="" value="1500" min="750">
   </div>
   <div class="mb-3 col-3">
     <label for="" class="form-label">Garage</label>
-    <input required type="number" class="form-control" name="garage" id="garage" aria-describedby="helpId"
+    <input required type="text" class="form-control" name="garage" id="garage" aria-describedby="helpId"
       placeholder="">
   </div>
   <div class="mb-3 col-12">
     <label for="" class="form-label">Description</label>
-    <input maxlength="50" required type="text" class="form-control" name="description" id="description"
+    <input maxlength="75" required type="text" class="form-control" name="description" id="description"
       aria-describedby="helpId" placeholder="">
   </div>
   <div class="mb-3 col-6">

@@ -4,8 +4,8 @@ import { housesService } from "../Services/HousesService.js"
 
 function _drawHouses() {
   let template = ''
-  ProxyState.houses.forEach(h => template += h.template)
-  document.getElementById('listings').innerHTML = template
+  ProxyState.houses.forEach(h => template += h.Template)
+  console.log('drawing houses')
 }
 
 export class HousesController {

@@ -1,18 +1,18 @@
 import { generateId } from '../Utils/generateId.js'
 
-export class Car{
-  constructor({make, model, year, price, description, color, imgUrl}){
+export class Car {
+  constructor({ make, model, year, price, description, color, imgUrl }) {
     this.id = generateId()
     this.make = make,
-    this.model = model,
-    this.year = year,
-    this.price = price,
-    this.description = description,
-    this.color = color, 
-    this.imgUrl = imgUrl
+      this.model = model,
+      this.year = year,
+      this.price = price,
+      this.description = description,
+      this.color = color,
+      this.imgUrl = imgUrl
   }
 
-  get Template(){
+  get Template() {
     return `
       <div class="col-md-4">
         <div class="bg-white rounded shadow">
