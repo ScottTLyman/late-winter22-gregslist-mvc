@@ -15,8 +15,8 @@ export class Car {
   get Template() {
     return `
       <div class="col-md-4">
-        <div class="bg-white rounded shadow">
-          <img class="img-fluid rounded-top" src="${this.imgUrl}" alt="car image">
+        <div class="bg-dark text-light rounded shadow p-2">
+          <img class="img-fluid rounded" src="${this.imgUrl}" alt="car image">
           <div class="p-3">
             <p>${this.make}</p>
             <p>${this.model}</p>

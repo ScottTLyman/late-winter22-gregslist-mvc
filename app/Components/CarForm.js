@@ -1,5 +1,5 @@
 // NOTE just a place to keep the ugly form html out of site
-export function getCarForm(){
+export function getCarForm() {
   return `
   <form class="row  p-2" onsubmit="app.carsController.createCar(event)">
                   <h3 class="col-12">Create a Car</h3>

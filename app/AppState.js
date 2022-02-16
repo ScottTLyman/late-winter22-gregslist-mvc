@@ -20,7 +20,9 @@ const testHouse = new House(
     bathrooms: 2.5,
     sqFootage: 2400,
     garage: '2 car',
-    imgUrl: 'https://thiscatdoesnotexist.com'
+    description: 'beautiful single-level Ranch style home',
+    price: 260000,
+    imgUrl: 'https://www.thiscatdoesnotexist.com'
   }
 )
 
