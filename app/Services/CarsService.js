@@ -1,27 +1,28 @@
+
 import { ProxyState } from "../AppState.js";
 import { Car } from "../Models/Car.js";
+import { api } from "./AxiosService.js";
 
 
 
 class CarsService {
-  createCar(newCar) {
-    console.log('service got the car', newCar);
-    // NOTE turns the car data into a classed 'Car' object
-    let realCar = new Car(newCar)
-    console.log('its a real car now', realCar);
-    // ProxyState.cars.push(realCar) NOTE push does not trigger listeners
-    // NOTE inserts the car created into the array with the rest of the cars there (spread operator)
+  async getAllCars() {
+    const res = await api.get('cars')
+    console.log('[CarsService: getAllCars', res.data)
+    ProxyState.cars = res.data.map(rd => new Car(rd))
+  }
+  async createCar(newCar) {
+    const res = await api.post('cars', newCar)
+    console.log('[CarsService: createCar', res.data)
+    let realCar = new Car(res.data)
     ProxyState.cars = [realCar, ...ProxyState.cars]
   }
 
-  deleteCar(carId) {
+  async deleteCar(carId) {
     console.log('service deleting car', carId);
-    // NOTE find the index of the car to delete
-    let indexToDelete = ProxyState.cars.findIndex(c => c.id == carId)
-    console.log('deleting index', indexToDelete);
-    ProxyState.cars.splice(indexToDelete, 1)
-    // NOTE just here to trigger the listener
-    ProxyState.cars = ProxyState.cars
+    const res = api.delete('cars/' + carId)
+    console.log('[CarsService: deleteCar', res.data)
+    ProxyState.cars = ProxyState.cars.filter(c => c.id != carId)
   }
 
 }

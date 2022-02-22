@@ -36,6 +36,7 @@ export class HousesController {
     housesService.createHouse(newHouse)
     let modal = document.getElementById('new-listing')
     form.reset()
+    // @ts-ignore
     bootstrap.Modal.getOrCreateInstance(modal).hide()
   }
   deleteHouse(houseID) {

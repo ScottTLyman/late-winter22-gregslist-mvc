@@ -5,6 +5,7 @@ import { isValidProp } from "./Utils/isValidProp.js"
 
 const testCar = new Car(
   {
+    id: '',
     make: 'GMC',
     model: 'Sierra',
     year: 2018,

@@ -1,6 +1,7 @@
 import { ProxyState } from "../AppState.js"
 import { getCarForm } from "../Components/CarForm.js"
 import { carsService } from "../Services/CarsService.js"
+import { Pop } from "../Utils/Pop.js"
 
 function _drawCars() {
   let template = ''
@@ -14,36 +15,40 @@ export class CarsController {
     console.log('cars controller loaded')
   }
 
-  viewCars() {
-    _drawCars()
-    document.getElementById('modal-body-slot').innerHTML = getCarForm()
+  async viewCars() {
+    try {
+      await carsService.getAllCars()
+      document.getElementById('modal-body-slot').innerHTML = getCarForm()
+    } catch (error) {
+      Pop.toast(error.message, 'error')
+    }
   }
 
-  createCar(event) {
-    event.preventDefault()
-    // NOTE grabs the form from the event submission
-    let form = event.target
-    console.log('hi from create car', form);
-    // NOTE collects the information from the form and organizes it in one place
-    let newCar = {
-      make: form.make.value,
-      model: form.model.value,
-      year: form.year.value,
-      description: form.description.value,
-      price: form.price.value,
-      color: form.color.value,
-      imgUrl: form.imgUrl.value
+  async handleSubmit() {
+    try {
+      window.event.preventDefault()
+      let form = window.event.target
+      console.log('hi from create car', form);
+      let newCar = {
+        make: form.make.value,
+        model: form.model.value,
+        year: form.year.value,
+        description: form.description.value,
+        price: form.price.value,
+        color: form.color.value,
+        imgUrl: form.imgUrl.value
+      }
+      if (
+        carsService.createCar(newCar)
+      let modal = document.getElementById('new-listing')
+      form.reset()
+      // @ts-ignore
+      bootstrap.Modal.getOrCreateInstance(modal).hide()
+    } catch (error) {
+      Pop.toast(error.message, 'error')
     }
-    console.log('new car', newCar);
-    // NOTE passes data to service
-    carsService.createCar(newCar)
-    // NOTE gets the modal element by it's id
-    let modal = document.getElementById('new-listing')
-    // NOTE clears form inputs
-    form.reset()
-    // @ts-ignore
-    bootstrap.Modal.getOrCreateInstance(modal).hide() //NOTE closes bootstrap modal
   }
+
 
   deleteCar(carId) {
     console.log('delete card', carId);
